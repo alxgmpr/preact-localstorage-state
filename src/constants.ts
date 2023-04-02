@@ -1,1 +1,1 @@
-export const LOCAL_STORAGE_CACHE_NAME = 'preact-localstorage-state'
+export const STORE_NAME = 'preact-localstorage-state'

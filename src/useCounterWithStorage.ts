@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'preact/hooks'
 import { useLocalStorage } from './useLocalStorage'
-import { LOCAL_STORAGE_CACHE_NAME } from './constants'
+import { STORE_NAME } from './constants'
 
 type CounterState = {
   counter: number
@@ -15,23 +14,16 @@ const initialState: CounterState = {
  */
 export function useCounterWithStorage() {
   const [state, setState] = useLocalStorage<CounterState>(
-    LOCAL_STORAGE_CACHE_NAME,
-    initialState,
+    STORE_NAME,
+    initialState
   )
-  const [count, setCount] = useState(state?.counter ?? 0)
 
   function increment() {
-    const newCount = count + 1
-    setCount(newCount)
     setState({
       ...state,
-      counter: newCount,
+      counter: state.counter + 1,
     })
   }
 
-  useEffect(() => {
-    setCount(state?.counter ?? 0)
-  }, [state])
-
-  return { count, increment }
+  return { count: state.counter, increment }
 }

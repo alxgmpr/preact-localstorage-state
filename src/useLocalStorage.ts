@@ -1,7 +1,7 @@
 import './storageProxy'
 import { useState, useEffect } from 'preact/hooks'
 
-type StorageValue<T> = T | null
+type StorageValue<T> = T
 
 /**
  * Creates a 'store' like JSON blob
@@ -10,7 +10,7 @@ type StorageValue<T> = T | null
  */
 export function useLocalStorage<T>(
   key: string,
-  initialValue: T,
+  initialValue: T
 ): [StorageValue<T>, (value: T) => void] {
   const [storedValue, setStoredValue] = useState<StorageValue<T>>(() => {
     const item = localStorage.getItem(key)
@@ -40,14 +40,14 @@ export function useLocalStorage<T>(
     window.addEventListener('storage', handleStorageChange)
     window.addEventListener(
       'localstorage',
-      handleLocalStorageChange as EventListener,
+      handleLocalStorageChange as EventListener
     )
 
     return () => {
       window.removeEventListener('storage', handleStorageChange)
       window.removeEventListener(
         'localstorage',
-        handleLocalStorageChange as EventListener,
+        handleLocalStorageChange as EventListener
       )
     }
   }, [key])

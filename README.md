@@ -4,6 +4,8 @@ Experimental Preact component bundle that uses LocalStorage to manage state. Bun
 
 Shows tracking a counter state via LocalStorage.
 
+![demo](docs/img/demo.gif)
+
 ## Why is this useful?
 
 1. Preact is smaller and lighter weight than React
@@ -11,7 +13,7 @@ Shows tracking a counter state via LocalStorage.
 3. Synchronous across tabs with no polling
 4. Nest JSON compatible pieces of state under one LocalStorage key
 
-# Why is this not useful?
+## Why is this not useful?
 
 1. LocalStorage is highly mutable. Don't use this for anything sensitive.
 2. This is not a state management system like Redux (though you probably don't need that either lol)

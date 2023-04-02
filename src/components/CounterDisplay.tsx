@@ -1,8 +1,8 @@
 import { h, FunctionComponent } from 'preact'
-import { useCounterWithStorage } from '../useCounterWithStorage'
+import { useCounter } from '../useCounter'
 
 export const CounterDisplay: FunctionComponent = () => {
-  const { count } = useCounterWithStorage()
+  const { count } = useCounter()
 
   return <div>Counter: {count}</div>
 }

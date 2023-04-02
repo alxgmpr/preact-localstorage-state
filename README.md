@@ -15,8 +15,9 @@ Shows tracking a counter state via LocalStorage.
 
 ## Why is this not useful?
 
-1. LocalStorage is highly mutable. Don't use this for anything sensitive.
+1. LocalStorage is highly mutable. Don't use this for anything remotely sensitive.
 2. This is not a state management system like Redux (though you probably don't need that either lol)
+3. LocalStorage is persistent, it's not always a good representation of page state.
 
 ## Build
 

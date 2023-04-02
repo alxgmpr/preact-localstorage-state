@@ -4,22 +4,24 @@ import { useState, useEffect } from 'preact/hooks'
 type StorageValue<T> = T
 
 /**
- * Creates a 'store' like JSON blob
+ * Creates a 'store' of state in a JSON blob in LocalStorage. Hooks up event
+ * listeners to re-render on changes
  * @param key - name of the key in localStorage to use
  * @param initialValue - initial state
  */
-export function useLocalStorage<T>(
+export function useLocalStorageState<T>(
   key: string,
   initialValue: T
-): [StorageValue<T>, (value: T) => void] {
+): { state: StorageValue<T>; setState: (value: T) => void } {
   const [storedValue, setStoredValue] = useState<StorageValue<T>>(() => {
     const item = localStorage.getItem(key)
     return item ? JSON.parse(item) : initialValue
   })
 
-  const setValue = (value: T) => {
-    setStoredValue(value)
-    localStorage.setItem(key, JSON.stringify(value))
+  const setValue = (value: Partial<T>) => {
+    const mutatedValue = { ...storedValue, ...value }
+    setStoredValue(mutatedValue)
+    localStorage.setItem(key, JSON.stringify(mutatedValue))
   }
 
   useEffect(() => {
@@ -52,5 +54,5 @@ export function useLocalStorage<T>(
     }
   }, [key])
 
-  return [storedValue, setValue]
+  return { state: storedValue, setState: setValue }
 }

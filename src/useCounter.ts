@@ -1,4 +1,4 @@
-import { useLocalStorage } from './useLocalStorage'
+import { useLocalStorageState } from './useLocalStorageState'
 import { STORE_NAME } from './constants'
 
 type CounterState = {
@@ -12,15 +12,14 @@ const initialState: CounterState = {
 /**
  * Example hook that implements a 'counter' state into the useLocalStorage store
  */
-export function useCounterWithStorage() {
-  const [state, setState] = useLocalStorage<CounterState>(
+export function useCounter() {
+  const { state, setState } = useLocalStorageState<CounterState>(
     STORE_NAME,
     initialState
   )
 
   function increment() {
     setState({
-      ...state,
       counter: state.counter + 1,
     })
   }

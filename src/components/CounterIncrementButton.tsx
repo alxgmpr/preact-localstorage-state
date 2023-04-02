@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from 'preact'
-import { useCounterWithStorage } from '../useCounterWithStorage'
+import { useCounter } from '../useCounter'
 
 export const CounterIncrementButton: FunctionComponent = () => {
-  const { increment } = useCounterWithStorage()
+  const { increment } = useCounter()
   return <button onClick={increment}>Increment</button>
 }

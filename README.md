@@ -11,11 +11,18 @@ Shows tracking a counter state via LocalStorage.
 3. Synchronous across tabs with no polling
 4. Nest JSON compatible pieces of state under one LocalStorage key
 
+# Why is this not useful?
+
+1. LocalStorage is highly mutable. Don't use this for anything sensitive.
+2. This is not a state management system like Redux (though you probably don't need that either lol)
+
 ## Build
 
 Generate the bundle with:
 
 `npm run build`
+
+`iife.js` is the main output, though the components can be used separately through the ESM build.
 
 ## Demo
 

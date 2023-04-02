@@ -1,9 +1,13 @@
-// src/useLocalStorage.tsx
 import './storageProxy'
 import { useState, useEffect } from 'preact/hooks'
 
 type StorageValue<T> = T | null
 
+/**
+ * Creates a 'store' like JSON blob
+ * @param key - name of the key in localStorage to use
+ * @param initialValue - initial state
+ */
 export function useLocalStorage<T>(
   key: string,
   initialValue: T,

@@ -6,8 +6,6 @@ Storage.prototype.setItem = new Proxy(Storage.prototype.setItem, {
     const event = new CustomEvent('localstorage', {
       detail: {
         type: 'setItem',
-        key: argumentList[0],
-        newValue: argumentList[1],
       },
     })
     Reflect.apply(target, thisArg, argumentList)
@@ -20,7 +18,6 @@ Storage.prototype.removeItem = new Proxy(Storage.prototype.removeItem, {
     const event = new CustomEvent('localstorage', {
       detail: {
         type: 'removeItem',
-        key: argumentList[0],
       },
     })
     Reflect.apply(target, thisArg, argumentList)
@@ -33,7 +30,6 @@ Storage.prototype.clear = new Proxy(Storage.prototype.clear, {
     const event = new CustomEvent('localstorage', {
       detail: {
         type: 'clear',
-        key: '__all__',
       },
     })
     Reflect.apply(target, thisArg, argumentList)

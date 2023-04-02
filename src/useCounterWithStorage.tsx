@@ -1,4 +1,3 @@
-// src/useCounterWithStorage.tsx
 import { useState, useEffect } from 'preact/hooks'
 import { useLocalStorage } from './useLocalStorage'
 import { LOCAL_STORAGE_CACHE_NAME } from './constants'
@@ -11,6 +10,9 @@ const initialState: CounterState = {
   counter: 0,
 }
 
+/**
+ * Example hook that implements a 'counter' state into the useLocalStorage store
+ */
 export function useCounterWithStorage() {
   const [state, setState] = useLocalStorage<CounterState>(
     LOCAL_STORAGE_CACHE_NAME,

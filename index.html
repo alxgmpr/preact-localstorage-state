@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preact Components</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/preact@10.13.2/dist/preact.min.js"></script>
+    <script src="dist/index.iife.js"></script>
+    <div id="display"></div>
+    <div id="increment"></div>
+
+    <script>
+      const { CounterDisplay, CounterIncrementButton } = PreactComponents
+      const { h, render } = preact
+
+      render(h(CounterDisplay, {}), document.getElementById('display'))
+      render(
+        h(CounterIncrementButton, {}),
+        document.getElementById('increment'),
+      )
+    </script>
+  </body>
+</html>

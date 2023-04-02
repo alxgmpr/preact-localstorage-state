@@ -1,0 +1,32 @@
+{
+  "name": "preact-localstorage-state",
+  "version": "1.0.0",
+  "description": "Demonstration of using localStorage to manage state in Preact component bundles",
+  "main": "index.js",
+  "dependencies": {
+    "preact": "^10.13.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "prettier": "2.8.7",
+    "rollup": "^3.20.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "typescript": "^5.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c rollup.config.mjs",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "preact",
+    "rollup",
+    "localstorage",
+    "cache"
+  ],
+  "author": "Alex Gompper",
+  "license": "MIT"
+}

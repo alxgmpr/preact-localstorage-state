@@ -1,0 +1,11 @@
+# IDE
+.idea
+
+# OSX
+.DS_STORE
+
+# Packages
+node_modules
+
+# Build output
+dist
